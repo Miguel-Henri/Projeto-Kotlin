@@ -1,5 +1,5 @@
 plugins {
-    id("com.google.devtools.ksp") version "2.3.4" apply true
+    id("com.google.devtools.ksp") version "2.0.0-1.0.21" apply true
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
@@ -45,6 +45,7 @@ dependencies {
     val room_version = "2.8.4"
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     implementation("androidx.room:room-rxjava2:$room_version")
@@ -61,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
