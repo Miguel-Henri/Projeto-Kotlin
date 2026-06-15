@@ -20,7 +20,9 @@ import androidx.room.PrimaryKey
 )
 data class TodoItemEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "name")         val name: String,
     @ColumnInfo(name = "is_completed") val isCompleted: Boolean = false,
-    @ColumnInfo(name = "list_id") val listId: Long
+    @ColumnInfo(name = "list_id")      val listId: Long,
+    @ColumnInfo(name = "sort_order")   val sortOrder: Int = 0,
+    @ColumnInfo(name = "due_date")     val dueDate: Long? = null   // epoch millis, nullable
 )

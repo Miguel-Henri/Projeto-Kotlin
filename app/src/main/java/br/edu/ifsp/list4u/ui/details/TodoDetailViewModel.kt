@@ -10,8 +10,8 @@ class TodoDetailViewModel(private val repository: TodoRepository) : ViewModel() 
 
     fun items(listId: Long) = repository.getItemsByList(listId)
 
-    fun addItem(name: String, listId: Long) {
-        viewModelScope.launch { repository.insertItem(name, listId) }
+    fun addItem(name: String, listId: Long, dueDate: Long? = null) {
+        viewModelScope.launch { repository.insertItem(name, listId, dueDate) }
     }
 
     fun toggle(item: TodoItemEntity) {
@@ -20,5 +20,9 @@ class TodoDetailViewModel(private val repository: TodoRepository) : ViewModel() 
 
     fun deleteItem(item: TodoItemEntity) {
         viewModelScope.launch { repository.deleteItem(item) }
+    }
+
+    fun reorder(items: List<TodoItemEntity>) {
+        viewModelScope.launch { repository.reorderItems(items) }
     }
 }
